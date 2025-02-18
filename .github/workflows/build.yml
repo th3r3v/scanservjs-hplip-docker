@@ -15,10 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        run: |
-          git clone --depth=1 https://github.com/sbs20/scanservjs.git source
-          cd source
-          git fetch --tags  # Ensure all tags are fetched
+        run: git clone https://github.com/sbs20/scanservjs.git source
 
       - name: Get latest release tag
         run: |

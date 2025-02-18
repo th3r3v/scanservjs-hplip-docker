@@ -15,11 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        run: git clone --depth=1 https://github.com/sbs20/scanservjs.git source
+        run: |
+          git clone --depth=1 https://github.com/sbs20/scanservjs.git source
+          cd source
+          git fetch --tags  # Ensure all tags are fetched
 
       - name: Get latest release tag
         run: |
-          cd source
           LATEST_TAG=$(git describe --tags --abbrev=0)
           echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
 
